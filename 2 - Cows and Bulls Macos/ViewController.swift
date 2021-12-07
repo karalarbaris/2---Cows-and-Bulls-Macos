@@ -9,9 +9,16 @@ import Cocoa
 
 class ViewController: NSViewController {
 
+    @IBOutlet var tableView: NSTableView!
+    @IBOutlet var guess: NSTextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        tableView.dataSource = self
+        tableView.delegate = self
+        
+        
         // Do any additional setup after loading the view.
     }
 
@@ -20,7 +27,10 @@ class ViewController: NSViewController {
         // Update the view, if already loaded.
         }
     }
-
+    
+    @IBAction func submitGuess(_ sender: NSButton) {
+    }
+    
 
 }
 
