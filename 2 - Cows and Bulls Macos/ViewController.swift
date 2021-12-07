@@ -21,8 +21,8 @@ class ViewController: NSViewController {
         tableView.dataSource = self
         tableView.delegate = self
         
+        startNewGame()
         
-        // Do any additional setup after loading the view.
     }
 
     override var representedObject: Any? {
@@ -37,6 +37,21 @@ class ViewController: NSViewController {
     
     func result(for guess: String) -> String {
         return "result"
+    }
+    
+    func startNewGame() {
+        guess.stringValue = ""
+        guesses.removeAll()
+        answer = ""
+        
+        var numbers = Array(0...9)
+        numbers.shuffle()
+        
+        for _ in 0 ..< 4 {
+            answer.append(String(numbers.removeLast()))
+        }
+        
+        tableView.reloadData()
     }
     
 
